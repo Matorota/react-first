@@ -42,18 +42,22 @@ function Calculator() {
       <div className="buttons">
         <div className="numbers">
           {CALCULATOR_NUMBERS.map((symbol, index) => (
-            <Button symbol={symbol} handleClick={handleClick} key={index} />
+            <Button
+              className={symbol === "C" ? "clear" : ""}
+              symbol={symbol}
+              handleClick={handleClick}
+              key={index}
+            />
           ))}
         </div>
         <div className="operators">
-          {CALCULATOR_OPERATORS.map((symbol) => (
-            <button
-              key={symbol}
+          {CALCULATOR_OPERATORS.map((symbol, index) => (
+            <Button
               className={symbol === "=" ? "equals" : ""}
-              onClick={() => handleClick(symbol)}
-            >
-              {symbol}
-            </button>
+              symbol={symbol}
+              handleClick={handleClick}
+              key={index}
+            />
           ))}
         </div>
       </div>
